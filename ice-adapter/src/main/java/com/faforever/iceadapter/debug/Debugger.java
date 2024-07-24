@@ -29,4 +29,8 @@ public interface Debugger {
 
     default void updateCoturnList(Collection<CoturnServer> servers) {
     }
+
+    public boolean getRaiseException();
+
+    public void setRaiseException(boolean value);
 }

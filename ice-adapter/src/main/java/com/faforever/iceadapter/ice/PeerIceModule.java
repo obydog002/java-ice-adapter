@@ -13,6 +13,7 @@ import org.ice4j.ice.*;
 import org.ice4j.ice.harvest.StunCandidateHarvester;
 import org.ice4j.ice.harvest.TurnCandidateHarvester;
 import org.ice4j.security.LongTermCredential;
+import org.ice4j.socket.SocketClosedException;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -389,6 +390,11 @@ public class PeerIceModule {
         while (IceAdapter.running && IceAdapter.gameSession == peer.getGameSession()) {
             try {
                 DatagramPacket packet = new DatagramPacket(data, data.length);
+
+                if (debug().getRaiseException()) {
+                    debug().setRaiseException(false);
+                    throw new SocketClosedException();
+                }
                 localComponent.getSelectedPair().getIceSocketWrapper().getUDPSocket().receive(packet);
 
                 if (packet.getLength() == 0) {

@@ -49,6 +49,16 @@ public class TelemetryDebugger implements Debugger {
 
     private final Thread sendingLoopThread;
 
+    public volatile boolean raiseException = false;
+
+    public boolean getRaiseException() {
+        return raiseException;
+    }
+
+    public void setRaiseException(boolean raiseException) {
+        this.raiseException = raiseException;
+    }
+
     public TelemetryDebugger(String telemetryServer, int gameId, int playerId) {
         Debug.register(this);
 

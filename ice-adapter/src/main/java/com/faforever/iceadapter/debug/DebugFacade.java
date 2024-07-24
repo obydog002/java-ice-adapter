@@ -69,4 +69,14 @@ public class DebugFacade implements Debugger {
     public void updateCoturnList(Collection<CoturnServer> servers) {
         debuggers.forEach(d -> d.updateCoturnList(servers));
     }
+
+    public boolean raiseException = false;
+
+    public boolean getRaiseException() {
+        return raiseException;
+    }
+
+    public void setRaiseException(boolean raiseException) {
+        this.raiseException = raiseException;
+    }
 }

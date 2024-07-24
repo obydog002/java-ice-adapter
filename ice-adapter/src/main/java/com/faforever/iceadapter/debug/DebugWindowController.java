@@ -43,6 +43,12 @@ public class DebugWindowController {
 
 	public Button killAdapterButton;
 
+	public Button debugRaiseException;
+
+	public void onDebugRaiseExceptionClicked(ActionEvent actionEvent) {
+		Debug.debug().setRaiseException(true);
+    }
+
 	public DebugWindowController() {
 
 	}
@@ -72,5 +78,6 @@ public class DebugWindowController {
 		remoteCandColumn.setCellValueFactory(new PropertyValueFactory<>("remoteCandidate"));
 
 		killAdapterButton.setOnAction(this::onKillAdapterClicked);
+		debugRaiseException.setOnAction(this::onDebugRaiseExceptionClicked);
 	}
 }

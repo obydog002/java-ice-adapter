@@ -19,7 +19,6 @@ public class InfoWindowController {
     public Button showTelemetryWebUiButton;
     public Button minimizeToTray;
 
-
     private volatile int killRequests = 0;
 
     public void onKillAdapterClicked(ActionEvent actionEvent) {

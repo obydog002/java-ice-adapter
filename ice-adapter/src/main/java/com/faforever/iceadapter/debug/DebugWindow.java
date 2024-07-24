@@ -46,6 +46,16 @@ public class DebugWindow extends Application implements Debugger {
     private ObservableList<DebugPeer> peers = FXCollections.observableArrayList();
 
 
+    public volatile boolean raiseException = false;
+
+    public boolean getRaiseException() {
+        return raiseException;
+    }
+
+    public void setRaiseException(boolean raiseException) {
+        this.raiseException = raiseException;
+    }
+
     @Override
     public void start(Stage stage) {
         INSTANCE = CompletableFuture.completedFuture(this);
